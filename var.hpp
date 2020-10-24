@@ -70,12 +70,14 @@ public:
 	bool operator==(const var& data) const {
 		if (dtype == 'i' && data.dtype == 'i')
 			return i == data.i;
+		else if (dtype == 'd' && data.dtype == 'd')
+			return d == data.d;
+		else if (dtype == 's' && data.dtype == 's')
+			return s == data.s;
 		else if (dtype == 'i' && data.dtype == 'd')
 			return i == data.d;
 		else if (dtype == 'd' && data.dtype == 'i')
 			return d == data.i;
-		else if (dtype == 'd' && data.dtype == 'd')
-			return d == data.d;
 		else if (dtype == 'i' && data.dtype == 's')
 			return convert(i) == data.s;
 		else if (dtype == 'd' && data.dtype == 's')
@@ -104,12 +106,14 @@ public:
 	bool operator>(const var& data) const {
 		if (dtype == 'i' && data.dtype == 'i')
 			return i > data.i;
+		else if (dtype == 'd' && data.dtype == 'd')
+			return d > data.d;
+		else if (dtype == 's' && data.dtype == 's')
+			return s > data.s;
 		else if (dtype == 'i' && data.dtype == 'd')
 			return i > data.d;
 		else if (dtype == 'd' && data.dtype == 'i')
 			return d > data.i;
-		else if (dtype == 'd' && data.dtype == 'd')
-			return d > data.d;
 		else if (dtype == 'i' && data.dtype == 's')
 			return convert(i) > data.s;
 		else if (dtype == 'd' && data.dtype == 's')
@@ -118,17 +122,21 @@ public:
 			return convert(data.i) > s;
 		else if (data.dtype == 'd' && dtype == 's')
 			return convert(data.d) > s;
+		else if (data.dtype == 'n' && dtype == 'n')
+			return true;
 		return false;
 	}
 	bool operator<(const var& data) const {
 		if (dtype == 'i' && data.dtype == 'i')
 			return i < data.i;
+		else if (dtype == 'd' && data.dtype == 'd')
+			return d < data.d;
+		else if (dtype == 's' && data.dtype == 's')
+			return s < data.s;
 		else if (dtype == 'i' && data.dtype == 'd')
 			return i < data.d;
 		else if (dtype == 'd' && data.dtype == 'i')
 			return d < data.i;
-		else if (dtype == 'd' && data.dtype == 'd')
-			return d < data.d;
 		else if (dtype == 'i' && data.dtype == 's')
 			return convert(i) < data.s;
 		else if (dtype == 'd' && data.dtype == 's')
@@ -137,7 +145,10 @@ public:
 			return convert(data.i) < s;
 		else if (data.dtype == 'd' && dtype == 's')
 			return convert(data.d) < s;
+		else if (data.dtype == 'n' && dtype == 'n')
+			return true;
 		return false;
+
 	}
 	bool operator<=(const var& data) const {
 		return (*this) < data || (*this) == data;
@@ -152,12 +163,14 @@ public:
 	var operator+(const var& data) const {
 		if (dtype == 'i' && data.dtype == 'i')
 			return i + data.i;
+		else if (dtype == 'd' && data.dtype == 'd')
+			return d + data.d;
+		else if (dtype == 's' && data.dtype == 's')
+			return s + data.s;
 		else if (dtype == 'i' && data.dtype == 'd')
 			return i + data.d;
 		else if (dtype == 'd' && data.dtype == 'i')
 			return d + data.i;
-		else if (dtype == 'd' && data.dtype == 'd')
-			return d + data.d;
 		else if (dtype == 'i' && data.dtype == 's')
 			return convert(i) + data.s;
 		else if (dtype == 'd' && data.dtype == 's')
@@ -172,36 +185,36 @@ public:
 	var operator-(const var& data) const {
 		if (dtype == 'i' && data.dtype == 'i')
 			return i - data.i;
+		else if (dtype == 'd' && data.dtype == 'd')
+			return d - data.d;
 		else if (dtype == 'i' && data.dtype == 'd')
 			return i - data.d;
 		else if (dtype == 'd' && data.dtype == 'i')
 			return d - data.i;
-		else if (dtype == 'd' && data.dtype == 'd')
-			return d - data.d;
 		return var();
 	}
 	// *
 	var operator*(const var& data) const {
 		if (dtype == 'i' && data.dtype == 'i')
 			return i * data.i;
+		else if (dtype == 'd' && data.dtype == 'd')
+			return d * data.d;
 		else if (dtype == 'i' && data.dtype == 'd')
 			return i * data.d;
 		else if (dtype == 'd' && data.dtype == 'i')
 			return d * data.i;
-		else if (dtype == 'd' && data.dtype == 'd')
-			return d * data.d;
 		return var();
 	}
 	// /
 	var operator/(const var& data) const {
 		if (dtype == 'i' && data.dtype == 'i')
 			return i / data.i;
+		else if (dtype == 'd' && data.dtype == 'd')
+			return d / data.d;
 		else if (dtype == 'i' && data.dtype == 'd')
 			return i / data.d;
 		else if (dtype == 'd' && data.dtype == 'i')
 			return d / data.i;
-		else if (dtype == 'd' && data.dtype == 'd')
-			return d / data.d;
 		return var();
 	}
 	char& operator[](const int a) {
