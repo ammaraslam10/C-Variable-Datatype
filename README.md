@@ -30,8 +30,8 @@ int main() {
 				.convertString()	Forces var to be a string, sets "null" in case of null
 				.clear()		Empty the var and set it to null
 				.parseInt()		Return int from var, "112a1d2" will be parsed as 11212, 
-				.parseFloat()	Return float from var, "11.2a1.d2" will be parsed as 11.212, 
-				.parseString()	Return string from var, 11.212 will be parsed as "11.212", 
+				.parseFloat()		Return float from var, "11.2a1.d2" will be parsed as 11.212, 
+				.parseString()		Return string from var, 11.212 will be parsed as "11.212", 
 	*/
 	var a = 10; 
 	var b = "10"; 
