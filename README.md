@@ -1,7 +1,7 @@
 # C-Variable-Datatype
 Note: It isn't the most efficient in terms of space and time, but it isn't intended to be.
 
-A class that can store data of type null, integer, double and string while keep a track of the datatype and performing operations according to the type.
+A C++ class that can store data of type null, integer, double and string while keep a track of the datatype and performing operations according to the type.
 Sort of like C# dynamic. Currently, array/custom types are not supported
 
 ```C++
